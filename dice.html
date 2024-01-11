@@ -16,17 +16,37 @@
     </style>
     <div class="grid-item" id="dice">
         <h2>Number of dices:</h2>
-        <img src="Dice1.PNG" alt="1 dice" onclick="">
-        <img src="dice2.PNG" alt="2 dice" onclick="">
-        <img src="dice3.PNG" alt="3 dice" onclick="">
+        <img src="Dice1.PNG" alt="1 dice" onclick="dices(1)">
+        <img src="dice2.PNG" alt="2 dice" onclick="dices(2)">
+        <img src="dice3.PNG" alt="3 dice" onclick="dices(3)">
     </div>
 
-    <button onclick="">Roll Dice</button>
+    <button onclick="roll(1)">Roll Dice</button>
         
-    <h2>Number of rolls:</h2>
-    <form action=""></form>
+    
+    <form>
+        <label for="dice">Number of rolls:</label><br>
+        <input type="text" name="dice" id="dice" value="1"/>
+        <input type="submit" value="Confirm">
+    </form>
 
-    <table id="table">
+    <div class="grid">
+        <div class="grid-item">Statistic</div>
+        <div class="grid-item">Value</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+      </div>
+      <style>
+        .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: .5fr .5fr;
+        }
 
-    </table>
+      </style>
 </html>
