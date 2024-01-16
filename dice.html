@@ -19,34 +19,46 @@
         <img src="Dice1.PNG" alt="1 dice" onclick="dices(1)">
         <img src="dice2.PNG" alt="2 dice" onclick="dices(2)">
         <img src="dice3.PNG" alt="3 dice" onclick="dices(3)">
-    </div>
-
-    <button onclick="roll(1)">Roll Dice</button>
-        
     
-    <form>
+        <span>
+        <button onclick="roll(1)">Roll Dice</button>
+        </span>
+        <div>
+        <form>
         <label for="dice">Number of rolls:</label><br>
         <input type="text" name="dice" id="dice" value="1"/>
         <input type="submit" value="Confirm">
-    </form>
-
+        </form>
+        </div>
+    </div>
+    <p id="rolled">
+        Your rolled values are:
+    </p>
     <div class="grid">
         <div class="grid-item">Statistic</div>
         <div class="grid-item">Value</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
+        <div class="grid-item">Mean</div>
+        <div class="grid-item" id="mean">0</div>
+        <div class="grid-item">Mode</div>
+        <div class="grid-item" id="mode">0</div>
+        <div class="grid-item">Median</div>
+        <div class="grid-item" id="median">0</div>
+        <div class="grid-item">Frequencies</div>
+        <div class="grid-item" id="frequencies">0</div>
+        <div class="grid-item">Doubles</div>
+        <div class="grid-item" id="double">0</div>
+        <div class="grid-item">Triples</div>
+        <div class="grid-item" id="triple">0</div>
       </div>
       <style>
-        .container {
+        .grid {
+        font-size: 40px; 
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: .5fr .5fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: .1fr .1fr .1fr .1fr .1fr .1fr .1fr .1fr;
         }
-
+        .button{
+            text-align: center;
+        }
       </style>
 </html>
