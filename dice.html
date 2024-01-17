@@ -10,23 +10,36 @@
 <body>
     <style>
         img{
-            width: 50px;
-            length: 50px;
+            width: 75px;
+            length: 75px;
+        }
+        .choice{
+            font-size: 40px; 
+            display: grid;
+            grid-template-columns: .3fr .3fr .3fr;
+            grid-template-rows: .1fr .1fr;
+        }
+        .bottom{
+            width: 1000px;
+            length: 2000px;
+            text-align: center;
         }
     </style>
-    <div class="grid-item" id="choice">
-        <h2>Number of dices:</h2>
-        <img src="Dice1.PNG" alt="1 dice" onclick="dices(1)">
-        <img src="dice2.PNG" alt="2 dice" onclick="dices(2)">
-        <img src="dice3.PNG" alt="3 dice" onclick="dices(3)">
+    <div class="grid" id="choice">
+        <div class="grid-item">
+            <h2>Number of dices:</h2>
+            <img src="Dice1.PNG" alt="1 dice" onclick="dices(1)">
+            <img src="dice2.PNG" alt="2 dice" onclick="dices(2)">
+            <img src="dice3.PNG" alt="3 dice" onclick="dices(3)">
+        </div>
     
-        <span>
-        <button onclick="roll(document.getElementById('dice').value)">Roll Dice</button>
-        </span>
-        <div>
+        <div class="grid-item">
+            <button onclick="roll(document.getElementById('dice').value)" id="bottom">Roll Dice</button>
+        </div>
+
+        <div class="grid-item">
         <form onsubmit="return false">
         <label for="dice">Number of rolls:</label>
-        <br>
         <input type="text" name="dice" id="dice" value="1"/>
         <button onclick="changeRolls(document.getElementById('dice').value)">Submit</button>
         </form>
@@ -44,7 +57,13 @@
         <div class="grid-item" id="mode">0</div>
         <div class="grid-item">Median</div>
         <div class="grid-item" id="median">0</div>
-        <div class="grid-item">Frequencies</div>
+        <div class="grid-item">
+            <form onsubmit="return false">
+            <label for="dice">Frequency of number:</label>
+            <input type="text" name="frequency" id="freak" value="1"/>
+            <button onclick="changeFreq(document.getElementById('freak').value)">Submit</button>
+            </form>
+        </div>
         <div class="grid-item" id="frequencies">0</div>
         <div class="grid-item">Doubles</div>
         <div class="grid-item" id="double">0</div>

@@ -4,6 +4,12 @@ var rolls = 1
 let mode = 0
 let median = 0
 let mean = 0
+let freq = 1
+let times = 0
+var arr1 = []
+let double = 0
+let triple = 0
+
 //console.log(numOfRolls)
 
 
@@ -20,16 +26,52 @@ function dices(num){
         minFreq = 3;
     }
 }
+
 function changeRolls(num) {
     rolls = num
 }
 
+function changeFreq(num) {
+    freq = num
+    times = 0
+    for(let i = 0; i < arr1.length; i++) {
+        if(freq == arr1[i]) {
+            times++
+        }
+    }
+    console.log(times)
+    document.getElementById("frequencies").innerText = times
+}
+
+function doubles() {
+    for(let i = 0; i < arr1.length - 1; i++) {
+        freq = arr1[i]
+        times = 0
+        for(let j = i+1; j < arr1.length; j++) {
+            if(freq == arr1[j]) {
+                times++
+            }
+        }
+        if(times == 3) {
+            triple++
+            console.log(triple)
+        } else if(times == 2) {
+            double++
+            console.log(double)
+        }
+    }
+  
+}
+
+
 function roll(rolls) {
-    let arr = []
+    arr = []
     for(let i = 0; i < rolls; i++) {
          arr.push(Random())            
     }
     arr.sort()
+    arr1 = arr
+    console.log(arr1)
     document.getElementById("rolled").innerText = `Your rolled values are: ` + arr
     
     //mean
@@ -67,25 +109,31 @@ function roll(rolls) {
         return currentStreak > bestStreak ? currentElem : bestElem
     };
 
-
-    //frequencies
-    for(let i = 1; i < 19; i++) {
-        for(let j = 0; j < rolls; j++) {
-            count = 0
-            if(arr[j] === i) {
-                count++
+    let arr2 = arr
+    for(let i = 0; i < arr2.length - 1; i++) {
+        let freq1 = arr2[i]
+        times = 0
+        for(let j = i+1; j < arr2.length; j++) {
+            if(freq1 == arr2[j]) {
+                delete arr2[j]
+                times++
             }
         }
-        let freq = count / arr.length
-        console.log(freq)
+        if(times == 3) {
+            triple++
+            console.log(triple)
+        } else if(times == 2) {
+            double++
+            console.log(double)
+        }
     }
 
     document.getElementById("mean").innerText = mean
     document.getElementById("median").innerText = median
     document.getElementById("mode").innerText = mode()
-    //document.getElementById("frequency").innerText = 
-    //document.getElementById().innerText = mean
-    //document.getElementById().innerText = median
+    
+    document.getElementById('double').innerText = double
+    document.getElementById('triple').innerText = triple
     //document.getElementById().innerText = mean
 }
 
