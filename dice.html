@@ -14,20 +14,21 @@
             length: 50px;
         }
     </style>
-    <div class="grid-item" id="dice">
+    <div class="grid-item" id="choice">
         <h2>Number of dices:</h2>
         <img src="Dice1.PNG" alt="1 dice" onclick="dices(1)">
         <img src="dice2.PNG" alt="2 dice" onclick="dices(2)">
         <img src="dice3.PNG" alt="3 dice" onclick="dices(3)">
     
         <span>
-        <button onclick="roll(1)">Roll Dice</button>
+        <button onclick="roll(document.getElementById('dice').value)">Roll Dice</button>
         </span>
         <div>
-        <form>
-        <label for="dice">Number of rolls:</label><br>
+        <form onsubmit="return false">
+        <label for="dice">Number of rolls:</label>
+        <br>
         <input type="text" name="dice" id="dice" value="1"/>
-        <input type="submit" value="Confirm">
+        <button onclick="changeRolls(document.getElementById('dice').value)">Submit</button>
         </form>
         </div>
     </div>

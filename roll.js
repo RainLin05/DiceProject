@@ -1,6 +1,6 @@
 let maxFreq = 0
 let minFreq = 0
-var rolls = document.getElementById("dice")
+var rolls = 1
 let mode = 0
 let median = 0
 let mean = 0
@@ -19,6 +19,9 @@ function dices(num){
         maxFreq = 18;
         minFreq = 3;
     }
+}
+function changeRolls(num) {
+    rolls = num
 }
 
 function roll(rolls) {
