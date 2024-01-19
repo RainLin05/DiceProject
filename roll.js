@@ -44,23 +44,25 @@ function changeFreq(num) {
 }
 
 function doubles() {
-    for(let i = 0; i < arr1.length - 1; i++) {
-        freq = arr1[i]
-        times = 0
-        for(let j = i+1; j < arr1.length; j++) {
-            if(freq == arr1[j]) {
-                times++
-            }
+
+
+    for(let k = 0; k < arr2.length - 1; k++) {
+        if(arr2[k] === arr2[k+1]) {
+            times++
         }
-        if(times == 3) {
-            triple++
-            console.log(triple)
-        } else if(times == 2) {
-            double++
+        if(times === 2) {
             console.log(double)
+            double++
+            if(arr[k+2] === null) {
+                times = 0
+            }
+        } else if(times === 3) {
+            triple++
+            times = 0
+            console.log(triple)
         }
     }
-  
+    double -= triple
 }
 
 
@@ -111,25 +113,29 @@ function roll(rolls) {
 
 
     let arr2 = arr
-    for(let k = 0; k < arr2.length - 1; k++) {
-        if(arr2[k] === arr2[k+1]) {
-            times++
-        }
-        if(times === 2) {
-            console.log(double)
-            double++
-            if(arr[k+2] === null) {
-                times = 0
-            }
-        } else if(times === 3) {
-            triple++
-            times = 0
-            console.log(triple)
+    console.log(arr2)
+    let dou = []
+    for(let i = 0; i < arr2.length - 1; i++) {
+        let count = 0
+        if(arr2[i] == arr2[i+1]) {
+            dou.push(arr2[i+1])
+            count+=1
+            console.log(count)
         }
     }
-    double -= triple
-    
-    
+    double = dou.length
+
+    let tri = []
+    for(let x = 0; x < arr2.length - 2; x++) {
+        if(arr2[x] == arr2[x+1]) {
+            if(arr2[x] == arr2[x+2]){
+                tri.push(arr2[x+1])
+                double = double - 2
+            }
+        }
+    }
+    triple = tri.length
+
     document.getElementById("mean").innerText = mean
     document.getElementById("median").innerText = median
     document.getElementById("mode").innerText = mode()
