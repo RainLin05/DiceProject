@@ -109,25 +109,27 @@ function roll(rolls) {
         return currentStreak > bestStreak ? currentElem : bestElem
     };
 
+
     let arr2 = arr
-    for(let i = 0; i < arr2.length - 1; i++) {
-        let freq1 = arr2[i]
-        times = 0
-        for(let j = i+1; j < arr2.length; j++) {
-            if(freq1 == arr2[j]) {
-                delete arr2[j]
-                times++
-            }
+    for(let k = 0; k < arr2.length - 1; k++) {
+        if(arr2[k] === arr2[k+1]) {
+            times++
         }
-        if(times == 3) {
-            triple++
-            console.log(triple)
-        } else if(times == 2) {
-            double++
+        if(times === 2) {
             console.log(double)
+            double++
+            if(arr[k+2] === null) {
+                times = 0
+            }
+        } else if(times === 3) {
+            triple++
+            times = 0
+            console.log(triple)
         }
     }
-
+    double -= triple
+    
+    
     document.getElementById("mean").innerText = mean
     document.getElementById("median").innerText = median
     document.getElementById("mode").innerText = mode()
